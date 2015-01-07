@@ -28,6 +28,7 @@ GEM
       thread_safe (~> 0.1)
       tzinfo (~> 1.1)
     arel (5.0.1.20140414130214)
+    bcrypt-ruby (3.0.1)
     builder (3.2.2)
     erubis (2.7.0)
     hike (1.2.3)
@@ -79,6 +80,7 @@ PLATFORMS
   x64-mingw32
 
 DEPENDENCIES
+  bcrypt-ruby (~> 3.0.0)
   mysql2
   rails (= 4.1.8)
   tzinfo-data

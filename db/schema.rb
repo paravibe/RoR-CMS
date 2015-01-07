@@ -11,7 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141214194041) do
+ActiveRecord::Schema.define(version: 20150107164240) do
+
+  create_table "nodes", force: true do |t|
+    t.string   "type"
+    t.string   "uid"
+    t.boolean  "status",     default: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", force: true do |t|
     t.string   "first_name"
