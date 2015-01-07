@@ -38,4 +38,6 @@ gem 'mysql2'
 gem 'tzinfo-data', platforms: [:x64_mingw,:mingw, :mswin]
 
 # Use ActiveModel has_secure_password
-gem 'bcrypt-ruby', '~> 3.0.0'
+gem 'bcrypt-ruby', '~> 3.1.2'
+
+gem "acts_as_list", "~> 0.6.0"

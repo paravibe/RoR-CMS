@@ -14,6 +14,8 @@ class User < ActiveRecord::Base
             :format => EMAIL_REGEX,
             :confirmation => true
 
+  scope :sorted, lambda { order("last_name ASC, first_name ASC") }
+
   def name
     "#{first_name} #{last_name}"
     # Or: first_name + ' ' + last_name
