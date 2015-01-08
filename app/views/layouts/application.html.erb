@@ -9,14 +9,14 @@
 <body class="nav-fixed">
 
 <%= render(:partial => 'layouts/main_menu') %>
-  <div class="container">
-    <div class="row">
-      <div class="col-md-12">
-        <%= render(:partial => 'layouts/flash_messages') %>
-        <%= yield %>
-      </div>
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <%= render(:partial => 'layouts/flash_messages') %>
+      <%= yield %>
     </div>
   </div>
+</div>
 
 </body>
 </html>
