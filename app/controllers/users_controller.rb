@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
 
+  before_action :confirm_logged_in, :except => [:login, :attempt_login, :logout]
+
   def index
     @users = User.sorted
   end
@@ -42,6 +44,41 @@ class UsersController < ApplicationController
     redirect_to(:action => 'index')
   end
 
+  def login
+    if is_logged_in
+      redirect_to(:action => 'index')
+    end
+  end
+
+  def attempt_login
+    if params[:email].present? && params[:password].present?
+      found_user = User.where(:email => params[:email]).first
+      if found_user
+        authorized_user = found_user.authenticate(params[:password])
+        if authorized_user
+          # mark user as logged in
+          session[:user_id] = authorized_user.id
+          session[:email] = authorized_user.email
+          flash[:notice] = "You are now logged in."
+          redirect_to(:action => 'index')
+        else
+          flash[:alert] = "Invalid username or password."
+          redirect_to(:action => 'login')
+        end
+      else
+        flash[:alert] = "Username doesn't exist."
+        redirect_to(:action => 'login')
+      end
+    end
+  end
+
+  def logout
+    # mark user as logged out
+    session[:user_id] = nil
+    session[:email] = nil
+    redirect_to(:action => "login")
+  end
+
   private
 
   def user_params
@@ -52,4 +89,15 @@ class UsersController < ApplicationController
         :password
     )
   end
+
+  def confirm_logged_in
+    unless session[:user_id]
+      flash[:alert] = "Please log in."
+      redirect_to(:controller => 'users', :action => 'login')
+      return false
+    else
+      return true
+    end
+  end
+
 end
