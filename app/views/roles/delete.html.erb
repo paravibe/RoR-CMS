@@ -1,0 +1,19 @@
+<% @page_title = "Delete role: #{@role.name}" %>
+
+<div class="row">
+  <div class="col-md-12">
+    <h1>Delete role</h1>
+
+    <%= form_for(:role, :url => {:action => 'destroy', :id => @role.id}) do |f| -%>
+
+      <p>Are you sure you want to permanently delete <strong><%= @role.name %></strong>?</p>
+      <p>This action cannot be undone</p>
+
+      <div class="form-buttons">
+        <%= submit_tag('Delete role', :class => 'btn btn-primary btn-danger') %>
+        <%= link_to('Cancel', {:action => 'index'}, :class => 'btn btn-link') %>
+      </div>
+
+    <% end %>
+  </div>
+</div>

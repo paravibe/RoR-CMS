@@ -1,4 +1,12 @@
 Rails.application.routes.draw do
+  get 'roles/index'
+
+  get 'roles/new'
+
+  get 'roles/edit'
+
+  get 'roles/delete'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

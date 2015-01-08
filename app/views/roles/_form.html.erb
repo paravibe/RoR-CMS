@@ -1,0 +1,13 @@
+<%= error_messages_for(@role) %>
+
+<div class="form-group">
+  <%=
+    f.text_field(
+      :name,
+      class: 'form-control',
+      required: '',
+      autofocus: '',
+      placeholder: 'Role name'
+    )
+  %>
+</div>
