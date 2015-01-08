@@ -15,7 +15,7 @@ ActiveRecord::Schema.define(version: 20150107164240) do
 
   create_table "nodes", force: true do |t|
     t.string   "type"
-    t.string   "uid"
+    t.string   "user_id"
     t.boolean  "status",     default: false
     t.datetime "created_at"
     t.datetime "updated_at"
