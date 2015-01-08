@@ -1,21 +1,19 @@
 <% @page_title = "Delete User: #{@user.name}" %>
 
-<div class="container user delete">
-  <div class="row">
-    <div class="col-md-12">
-      <h1>Delete User</h1>
+<div class="row">
+  <div class="col-md-12">
+    <h1>Delete User</h1>
 
-      <%= form_for(:user, :url => {:action => 'destroy', :id => @user.id}) do |f| -%>
+    <%= form_for(:user, :url => {:action => 'destroy', :id => @user.id}) do |f| -%>
 
-        <p>Are you sure you want to permanently delete <strong><%= @user.name %></strong>?</p>
-        <p>This action cannot be undone</p>
+      <p>Are you sure you want to permanently delete <strong><%= @user.name %></strong>?</p>
+      <p>This action cannot be undone</p>
 
-        <div class="form-buttons">
-          <%= submit_tag('Delete User', :class => 'btn btn-primary btn-danger') %>
-          <%= link_to('Cancel', {:action => 'index'}, :class => 'btn btn-link') %>
-        </div>
+      <div class="form-buttons">
+        <%= submit_tag('Delete User', :class => 'btn btn-primary btn-danger') %>
+        <%= link_to('Cancel', {:action => 'index'}, :class => 'btn btn-link') %>
+      </div>
 
-      <% end %>
-    </div>
+    <% end %>
   </div>
 </div>

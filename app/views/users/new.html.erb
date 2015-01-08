@@ -1,17 +1,17 @@
-<div class="container user new">
-  <div class="row">
-    <div class="col-sm-6 col-md-4 col-md-offset-4">
-      <h1 class="text-center">Register</h1>
+<% @page_title = "Add User" -%>
 
-      <%= form_for(:user, :url => {:action => 'create'}) do |f| %>
+<div class="row">
+  <div class="col-sm-6 col-md-4 col-md-offset-4 user new">
+    <h1 class="text-center">Register</h1>
 
-        <%= render(:partial => 'form', :locals => {:f => f} ) %>
+    <%= form_for(:user, :url => {:action => 'create'}) do |f| %>
 
-        <div class="form-buttons">
-          <%= submit_tag('Register', class: 'btn btn-lg btn-primary btn-block') %>
-        </div>
+      <%= render(:partial => 'form', :locals => {:f => f} ) %>
 
-      <% end %>
-    </div>
+      <div class="form-buttons">
+        <%= submit_tag('Register', class: 'btn btn-lg btn-primary btn-block') %>
+      </div>
+
+    <% end %>
   </div>
 </div>
