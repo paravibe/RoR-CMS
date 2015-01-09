@@ -1,4 +1,7 @@
 class RolesController < ApplicationController
+
+  before_action :confirm_logged_in
+
   def index
     @roles = Role.sorted
   end
