@@ -5,4 +5,18 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+User.destroy_all
+Role.destroy_all
+
+password = BCrypt::Password.create('admin')
+
+User.create(
+    {
+        :first_name => 'Super',
+        :last_name => 'Admin',
+        :email => 'super@admin.com',
+        :password_digest => password,
+        :status => 1,
+    }
+)
 Role.create({name: 'administrator'})

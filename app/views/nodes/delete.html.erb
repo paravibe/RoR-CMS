@@ -1,0 +1,19 @@
+<% @page_title = "Delete Node: #{@node.id}" %>
+
+<div class="row">
+  <div class="col-md-12">
+    <h1>Delete Node</h1>
+
+    <%= form_for(:node, :url => {:action => 'destroy', :id => @node.id}) do |f| -%>
+
+      <p>Are you sure you want to permanently delete <strong><%= @node.id %></strong>?</p>
+      <p>This action cannot be undone</p>
+
+      <div class="form-buttons">
+        <%= submit_tag('Delete Node', :class => 'btn btn-primary btn-danger') %>
+        <%= link_to('Cancel', {:action => 'index'}, :class => 'btn btn-link') %>
+      </div>
+
+    <% end %>
+  </div>
+</div>

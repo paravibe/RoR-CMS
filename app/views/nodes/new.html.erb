@@ -1,0 +1,13 @@
+<% @page_title = "Add Node" -%>
+
+<h1 class="text-center">Add node</h1>
+
+<%= form_for(:node, :url => {:action => 'create'}) do |f| %>
+
+  <%= render(:partial => 'form', :locals => {:f => f} ) %>
+
+  <div class="form-buttons">
+    <%= submit_tag('Save', class: 'btn btn-primary') %>
+  </div>
+
+<% end %>
