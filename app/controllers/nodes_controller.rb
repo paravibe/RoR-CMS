@@ -1,6 +1,8 @@
 class NodesController < ApplicationController
   before_action :confirm_logged_in
-  before_action :find_title, :except => [:index, :new, :create]
+  before_action :get_users, :only => [:new, :create, :edit, :update]
+  before_action :current_user, :only => [:new, :create, :edit, :update]
+  before_action :find_title, :only => [:edit, :update, :delete, :destroy]
 
   def index
     @nodes = Node.sorted
@@ -9,13 +11,13 @@ class NodesController < ApplicationController
   def new
     @node = Node.new
     @node.build_node_title
-    @users = User.all
   end
 
   def create
     @node = Node.new(node_params)
     @node.node_title = NodeTitle.new(:title => params[:node][:node_title][:title])
-    @users = User.all
+
+    # Save node.
     if @node.save
       flash[:notice] = 'Node has been created.'
       redirect_to(:action => 'index')
@@ -26,11 +28,9 @@ class NodesController < ApplicationController
 
   def edit
     @node.build_node_title if @node.node_title.nil?
-    @users = User.all
   end
 
   def update
-    @users = User.all
     if @node.update_attributes(node_params)
       flash[:notice] = 'Node has been updated.'
       redirect_to(:action => 'index')
@@ -52,10 +52,14 @@ class NodesController < ApplicationController
 
   def node_params
     params.require(:node).permit(
-        :user_id,
-        :status,
-        node_title_attributes: [:node_id, :title]
+      :user_id,
+      :status,
+      node_title_attributes: [:title]
     )
+  end
+
+  def get_users
+    @users = User.sorted
   end
 
   def find_title
