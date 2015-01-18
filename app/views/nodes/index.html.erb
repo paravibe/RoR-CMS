@@ -23,7 +23,7 @@
       <tr class="<%= cycle('odd', 'even') %>">
         <td><%= node.id %></td>
         <td><%= node.node_title.title unless node.node_title.nil? %></td>
-        <td><%= node.user.name %></td>
+        <td><%= node.user.name unless node.user.nil? %></td>
         <td><%= node.status %></td>
         <td class="actions">
           <ul class="list-inline">
