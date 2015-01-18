@@ -8,7 +8,7 @@ class ApplicationController < ActionController::Base
   private
 
   def confirm_logged_in
-    unless session[:user_id]
+    if !session[:user_id] || !current_user
       flash[:alert] = "Please log in."
       redirect_to(:controller => 'users', :action => 'login')
       return false

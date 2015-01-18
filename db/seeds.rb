@@ -10,13 +10,14 @@ Role.destroy_all
 
 password = BCrypt::Password.create('admin')
 
-User.create(
+role = Role.create({name: 'administrator'})
+user = User.create(
     {
         :first_name => 'Super',
         :last_name => 'Admin',
-        :email => 'super@admin.com',
+        :email => 'paravibe@gmail.com',
         :password_digest => password,
         :status => 1,
+        role_ids: [role.id]
     }
 )
-Role.create({name: 'administrator'})

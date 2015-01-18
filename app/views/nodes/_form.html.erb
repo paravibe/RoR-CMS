@@ -1,7 +1,7 @@
 <%= error_messages_for(@node) %>
 
 
-<%= f.fields_for(:node_title) do |nt| %>
+<%= f.fields_for :node_title do |nt| %>
   <div class="form-group">
     <%=
         nt.text_field(

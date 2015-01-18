@@ -13,13 +13,13 @@
 
 ActiveRecord::Schema.define(version: 20150117151626) do
 
-  create_table "node_titles", id: false, force: true do |t|
+  create_table "node_titles", force: true do |t|
     t.integer "node_id"
     t.string  "title"
   end
 
   create_table "nodes", force: true do |t|
-    t.string   "user_id"
+    t.integer  "user_id"
     t.boolean  "status",     default: false
     t.datetime "created_at"
     t.datetime "updated_at"

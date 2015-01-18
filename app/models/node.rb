@@ -1,8 +1,8 @@
 class Node < ActiveRecord::Base
   belongs_to :user
-  has_one :node_title
+  has_one :node_title, dependent: :destroy
+  accepts_nested_attributes_for :node_title, :allow_destroy => true
 
-  validates :status, :presence => true
   validates :user_id, :presence => true
 
   scope :sorted, lambda { order("id DESC") }

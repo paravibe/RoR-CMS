@@ -1,5 +1,6 @@
 class NodesController < ApplicationController
   before_action :confirm_logged_in
+  before_action :find_title, :except => [:index, :new, :create]
 
   def index
     @nodes = Node.sorted
@@ -7,12 +8,13 @@ class NodesController < ApplicationController
 
   def new
     @node = Node.new
-    @users = User.all
     @node.build_node_title
+    @users = User.all
   end
 
   def create
     @node = Node.new(node_params)
+    @node.node_title = NodeTitle.new(:title => params[:node][:node_title][:title])
     @users = User.all
     if @node.save
       flash[:notice] = 'Node has been created.'
@@ -23,12 +25,11 @@ class NodesController < ApplicationController
   end
 
   def edit
-    @node = Node.find(params[:id])
+    @node.build_node_title if @node.node_title.nil?
     @users = User.all
   end
 
   def update
-    @node = Node.find(params[:id])
     @users = User.all
     if @node.update_attributes(node_params)
       flash[:notice] = 'Node has been updated.'
@@ -39,12 +40,11 @@ class NodesController < ApplicationController
   end
 
   def delete
-    @node = Node.find(params[:id])
   end
 
   def destroy
     Node.find(params[:id]).destroy
-    flash[:notice] = "Node destroyed."
+    flash[:notice] = 'Node has been destroyed.'
     redirect_to(:action => 'index')
   end
 
@@ -54,8 +54,13 @@ class NodesController < ApplicationController
     params.require(:node).permit(
         :user_id,
         :status,
-        node_title_attributes: [:title]
+        node_title_attributes: [:node_id, :title]
     )
+  end
+
+  def find_title
+    @node = Node.find(params[:id])
+    @node_title = @node.node_title.nil? ? '' : @node.node_title.title
   end
 
 end

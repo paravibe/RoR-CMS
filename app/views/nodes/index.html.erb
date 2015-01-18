@@ -22,7 +22,7 @@
     <% @nodes.each do |node| %>
       <tr class="<%= cycle('odd', 'even') %>">
         <td><%= node.id %></td>
-        <td><%= node.node_title %></td>
+        <td><%= node.node_title.title unless node.node_title.nil? %></td>
         <td><%= node.user.name %></td>
         <td><%= node.status %></td>
         <td class="actions">

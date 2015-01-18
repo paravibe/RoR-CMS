@@ -1,8 +1,8 @@
-<% @page_title = "Edit Node: #{@node.node_title}" -%>
+<% @page_title = "Edit Node: #{@node_title}" -%>
 
-<h1 class="text-center">Edit <% @node.node_title %></h1>
+<h1 class="text-center">Edit <% @node_title %></h1>
 
-<%= form_for(:node, :url => {:action => 'update', :id => @node.id}) do |f| %>
+<%= form_for(@node, :url => {:action => 'update', :id => @node.id}) do |f| %>
 
   <%= render(:partial => 'form', :locals => {:f => f} ) %>
 

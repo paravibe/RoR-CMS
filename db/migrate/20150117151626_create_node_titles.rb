@@ -1,6 +1,6 @@
 class CreateNodeTitles < ActiveRecord::Migration
   def up
-    create_table :node_titles, :id => false do |t|
+    create_table :node_titles do |t|
       t.integer("node_id")
       t.string("title")
     end
