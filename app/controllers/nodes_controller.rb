@@ -1,7 +1,6 @@
 class NodesController < ApplicationController
   before_action :confirm_logged_in
   before_action :get_users, :only => [:new, :create, :edit, :update]
-  before_action :current_user, :only => [:new, :create, :edit, :update]
   before_action :find_title, :only => [:edit, :update, :delete, :destroy]
 
   def index
