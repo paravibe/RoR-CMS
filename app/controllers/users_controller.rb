@@ -60,7 +60,7 @@ class UsersController < ApplicationController
           session[:user_id] = authorized_user.id
           session[:email] = authorized_user.email
           flash[:notice] = "You are now logged in."
-          redirect_to(:action => 'index')
+          redirect_to root_path
         else
           flash[:alert] = "Invalid username or password."
           redirect_to(:action => 'login')
