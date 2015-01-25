@@ -1,5 +1,89 @@
 <section class="container-fluid header">
-  <div class="row">
+  <nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="<%= url_for({:use_route => 'root'}) %>">Paravibe</a>
+      </div>
+      <div id="navbar" class="navbar-collapse collapse">
+        <ul class="nav navbar-nav">
+          <li><a href="<%= url_for({:use_route => 'root'}) %>">Home</a></li>
+          <li><a href="<%= url_for({:controller => 'users', :action => 'index'}) %>">Users</a></li>
+          <li><a href="<%= url_for({:controller => 'roles', :action => 'index'}) %>">Roles</a></li>
+          <li><a href="<%= url_for({:controller => 'nodes', :action => 'index'}) %>">Nodes</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <% if is_logged_in %>
+            <li><%= link_to(raw("Hello <b>#{@current_user.name}</b>"), {:controller => 'users', :action => 'edit', :id => @current_user.id}) %></li>
+            <li><%= link_to('Logout', {:controller => 'users', :action => 'logout'}) %></li>
+          <% else %>
+            <li><%= link_to('Login', {:controller => 'users', :action => 'login'}) %></li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  </nav>
 
+  <div class="row header-info">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12 col-sm-12 user">
+          <%= image_tag @profile_image, :class => 'img-circle' %>
+          <h2>Max Petyurenko</h2>
+          <ul class="list-inline">
+            <li>
+              <h5>
+                <span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span>
+                <span>Lviv</span>
+              </h5>
+            </li>
+            <li>
+              <h5>
+                <span class="glyphicon glyphicon-briefcase" aria-hidden="true"></span>
+                <span>Drucode</span>
+              </h5>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
+
+<section class="bullets">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-6">
+        <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.</p>
+      </div>
+      <div class="col-lg-6">
+        <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="skills">
+  <div class="container">
+    <div class="row">
+      <h2 class="title text-center">My skills</h2>
+      <div class="col-lg-12">
+        <div id="skills-chart-wrapp">
+          <div id="skills-chart"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="text-center">
+    </div>
+  </div>
+</footer>

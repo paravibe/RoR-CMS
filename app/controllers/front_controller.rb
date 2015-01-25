@@ -1,7 +1,9 @@
 class FrontController < ApplicationController
   layout 'front'
 
-  def page
+  include FrontHelper
 
+  def page
+    @profile_image = gimage('paravibe@gmail.com')
   end
 end
