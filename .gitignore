@@ -18,3 +18,5 @@
 # IDE
 *.iml
 .idea
+
+public/*
