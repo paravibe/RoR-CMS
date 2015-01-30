@@ -4,6 +4,6 @@ class FrontController < ApplicationController
   include FrontHelper
 
   def page
-    @profile_image = gimage('paravibe@gmail.com')
+    @profile_image = gimage('paravibe@gmail.com', '200')
   end
 end
