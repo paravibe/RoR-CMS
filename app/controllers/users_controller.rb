@@ -46,7 +46,7 @@ class UsersController < ApplicationController
 
   def login
     if is_logged_in
-      redirect_to(:action => 'index')
+      # redirect_to(:action => 'index')
     end
   end
 
@@ -76,7 +76,7 @@ class UsersController < ApplicationController
     # mark user as logged out
     session[:user_id] = nil
     session[:email] = nil
-    redirect_to(:action => "login")
+    redirect_to(:use_route => 'root')
   end
 
   private
