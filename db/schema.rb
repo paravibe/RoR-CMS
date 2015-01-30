@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150117151626) do
+ActiveRecord::Schema.define(version: 20150130141923) do
 
   create_table "node_titles", force: true do |t|
     t.integer "node_id"
