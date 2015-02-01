@@ -7,50 +7,8 @@ $(window).on("resize", function (event) {
 
 function initChart() {
   var data = google.visualization.arrayToDataTable([
-    [
-      'Drupal',
-      'PHP',
-      'SQL',
-      'jQuery',
-      'CSS',
-      'HTML',
-      'AJAX',
-      'Git',
-      'Apache',
-      'Solr',
-      'Github',
-      'JIRA',
-      'Confluence',
-      'Scrum',
-      'Kanban',
-      'Intellij IDEA',
-      'Redmine',
-      'Basecamp',
-      'Java',
-      'Android Development'
-    ],
-    [
-      90,
-      80,
-      90,
-      40,
-      30,
-      60,
-      70,
-      20,
-      10,
-      20,
-      80,
-      50,
-      50,
-      90,
-      50,
-      70,
-      50,
-      30,
-      20,
-      50,
-    ],
+    gon.skills_keys,
+    gon.skills_values,
   ]);
 
   var options = {
