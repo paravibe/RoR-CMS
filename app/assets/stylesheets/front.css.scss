@@ -1,9 +1,25 @@
 $hover_trans: 300ms;
+$nav_trans: 100ms;
 
 .front {
   h1, h2, h3, h4, h5, h6 {
     font-family: 'Ubuntu', sans-serif;
   }
+}
+
+nav.navbar div.navbar-header > a {
+  color: #B0BEC5;
+}
+
+nav.navbar {
+  background: none;
+}
+
+nav.navbar.background {
+  background: rgba(0, 121, 107, 0.89);
+  -webkit-transition: all $nav_trans linear;
+  -moz-transition: all $nav_trans linear;
+  transition: all $nav_trans linear;
 }
 
 .title {

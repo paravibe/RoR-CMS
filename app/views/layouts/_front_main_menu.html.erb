@@ -10,21 +10,9 @@
       <a class="navbar-brand" href="<%= url_for({:use_route => 'root'}) %>">Paravibe</a>
     </div>
     <div id="navbar" class="navbar-collapse collapse">
-      <% if is_logged_in %>
-        <ul class="nav navbar-nav">
-          <li><a href="<%= url_for({:use_route => 'root'}) %>">Home</a></li>
-          <li><a href="<%= url_for({:controller => 'users', :action => 'index'}) %>">Users</a></li>
-          <li><a href="<%= url_for({:controller => 'roles', :action => 'index'}) %>">Roles</a></li>
-          <li><a href="<%= url_for({:controller => 'nodes', :action => 'index'}) %>">Nodes</a></li>
-        </ul>
-      <% end %>
-      <ul class="nav navbar-nav navbar-right">
-        <% if is_logged_in %>
-          <li><%= link_to(raw("Hello <b>#{@current_user.name}</b>"), {:controller => 'users', :action => 'edit', :id => @current_user.id}) %></li>
-          <li><%= link_to('Logout', {:controller => 'users', :action => 'logout'}) %></li>
-        <% else %>
-          <li><%= link_to('Login', {:controller => 'users', :action => 'login'}) %></li>
-        <% end %>
+      <ul class="nav navbar-nav">
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
       </ul>
     </div>
   </div>
