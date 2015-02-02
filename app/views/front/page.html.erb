@@ -23,6 +23,12 @@
       </div>
     </div>
   </div>
+  <div class="video-wrapp">
+    <video class="video" autoplay="" muted="" loop="">
+      <source src="https://secure-c.vimeocdn.com/p/video/yosemite_hd_ii_hd.webm" type="video/webm">
+      <source src="https://secure-c.vimeocdn.com/p/video/yosemite_hd_ii_hd.mp4" type="video/mp4">
+    </video>
+  </div>
 </section>
 
 <section class="bullets">
@@ -51,27 +57,65 @@
   </div>
 </section>
 
+<section class="repositories">
+  <div class="container">
+    <div class="row">
+      <h2 class="title text-center">My projects</h2>
+
+      <% @repos.each do |repo| %>
+        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+          <div class="repo-wrapper">
+            <h3 class="language language-<%= repo.language.downcase %>"><%= repo.language %></h3>
+            <div class="desc">
+              <h2 class="name"><%= repo.name %></h2>
+              <p class="description"><%= repo.description %></p>
+            </div>
+            <div class="counts">
+              <div class="col-xs-4">
+                <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                <%= repo.stargazers_count %>
+              </div>
+              <div class="col-xs-4">
+                <span class="glyphicon glyphicon-heart" aria-hidden="true"></span>
+                <%= repo.watchers_count %>
+              </div>
+              <div class="col-xs-4">
+                <span class="glyphicon glyphicon-time" aria-hidden="true"></span>
+                <%= time_ago_in_words(repo.updated_at) %>
+              </div>
+            </div>
+            <a target="_blank" href="<%= repo.html_url %>">&nbsp;</a>
+          </div>
+        </div>
+      <% end %>
+
+    </div>
+  </div>
+</section>
+
 <footer>
   <div class="container">
-    <div class="col-lg-11 col-md-11 col-sm-11 col-xs-10">test</div>
-    <div class="col-lg-1 col-md-1 col-sm-1 col-xs-2 social">
-      <ul class="text-center list-unstyled">
-        <li>
-          <a target="_blank" class="social-link" href="http://github.com/paravibe">
-            <%= image_tag('github.svg') %>
-          </a>
-        </li>
-        <li>
-          <a target="_blank" class="social-link" href="https://www.drupal.org/user/2277548">
-            <%= image_tag('drupal.svg') %>
-          </a>
-        </li>
-        <li>
-          <a target="_blank" class="social-link" href="http://www.linkedin.com/profile/view?id=211903850">
-            <%= image_tag('linkedin.svg') %>
-          </a>
-        </li>
-      </ul>
+    <div class="row">
+      <div class="col-xs-10 col-sm-11 col-md-11 col-lg-11">test</div>
+      <div class="col-xs-2 col-sm-1 col-md-1 col-lg-1">
+        <ul class="text-center list-unstyled social">
+          <li>
+            <a target="_blank" class="social-link" href="http://github.com/paravibe">
+              <%= image_tag('github.svg') %>
+            </a>
+          </li>
+          <li>
+            <a target="_blank" class="social-link" href="https://www.drupal.org/user/2277548">
+              <%= image_tag('drupal.svg') %>
+            </a>
+          </li>
+          <li>
+            <a target="_blank" class="social-link" href="http://www.linkedin.com/profile/view?id=211903850">
+              <%= image_tag('linkedin.svg') %>
+            </a>
+          </li>
+        </ul>
+      </div>
     </div>
   </div>
 </footer>

@@ -4,8 +4,11 @@ class FrontController < ApplicationController
 
   def page
     @user = User.find(1);
+
+    # Get Gravatar image.
     @profile_image = gimage(@user.email, '200')
 
+    # List of skills for bar chart.
     skills = {
       'Skill' => 'Skill',
       'Drupal' => 8,
@@ -36,8 +39,8 @@ class FrontController < ApplicationController
 
     gon.skills_keys = skills.keys
     gon.skills_values = skills.values
-  end
 
-  def settings
+    # Get github repositories.
+    @repos = github_repos('paravibe')
   end
 end

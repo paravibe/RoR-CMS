@@ -1,4 +1,4 @@
-$header_blur: 3px;
+$hover_trans: 300ms;
 
 .front {
   h1, h2, h3, h4, h5, h6 {
@@ -7,31 +7,27 @@ $header_blur: 3px;
 }
 
 .title {
+  color: #424242;
   text-transform: uppercase;
+  margin-top: 40px;
+  margin-bottom: 40px;
 }
 
 section.header {
-  background-color: #37474F;
-  background-size: cover;
   position: relative;
   z-index: 990;
-  &:after {
-    background-image: url('/assets/front_header.jpg');
-    content: "";
-    display: block;
+  overflow: hidden;
+  .video-wrapp {
+    background: #000;
+    width: 100%;
+    height: auto;
     position: absolute;
     top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    opacity: 0.2;
     z-index: -1;
-    background-size: cover;
-    -webkit-filter: blur($header_blur);
-    -moz-filter: blur($header_blur);
-    -o-filter: blur($header_blur);
-    -ms-filter: blur($header_blur);
-    filter: blur($header_blur);
+    left: 0;
+    video {
+      min-width: 100%;
+    }
   }
 }
 
@@ -62,6 +58,8 @@ nav.navbar-default {
   #skills-chart-wrapp {
     overflow:hidden;
     #skills-chart {
+      margin-left: -26px;
+      margin-right: -60px;
       svg > g {
         > line, > text {
           display: none;
@@ -71,23 +69,94 @@ nav.navbar-default {
   }
 }
 
-footer {
-  background-color: #212121;
-  .social {
-    background-color: #fff;
-    ul {
-      margin-top: 10px;
-      .social-link {
-        margin: 8px 0;
-        display: block;
-        &:hover {
-          opacity: 0.6;
-        }
-        > img {
-          height: 25px;
-          width: 25px;
-        }
+.repositories {
+  background-color: #eee;
+  border-top: 1px solid #E0E0E0;
+  padding-bottom: 20px;
+  .repo-wrapper {
+    overflow: hidden;
+    background: #fff;
+    margin-bottom: 30px;
+    position: relative;
+    &:hover {
+      box-shadow: 0 15px 40px 0 rgba(0,0,0,.19);
+      -webkit-transition: all $hover_trans linear;
+      -moz-transition: all $hover_trans linear;
+      transition: all $hover_trans linear;
+    }
+    .desc {
+      padding: 15px;
+      min-height: 130px;
+      position: relative;
+      word-break: break-all;
+    }
+    .counts {
+      font-size: 16px;
+      height: 25px;
+      margin: 10px 0;
+      overflow: hidden;
+    }
+    a {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      display: block;
+      &:hover {
+        text-decoration: none;
       }
     }
   }
+}
+
+footer {
+  background-color: #212121;
+  ul.social {
+    background-color: #fff;
+    margin: 0;
+    .social-link {
+      padding: 8px 0;
+      display: block;
+      &:hover {
+        opacity: 0.6;
+        -webkit-transition: all $hover_trans linear;
+        -moz-transition: all $hover_trans linear;
+        transition: all $hover_trans linear;
+      }
+      > img {
+        height: 25px;
+        width: 25px;
+      }
+    }
+  }
+}
+
+.language {
+  padding: 15px;
+  margin: 0;
+  color: #fff;
+}
+
+.language-php {
+  background-color: #4285F4;
+}
+
+.language-javascript {
+  background-color: #FF7043;
+}
+
+.language-java {
+  background-color: #00796B;
+}
+
+.language-css {
+  background-color: #F4B400;
+}
+
+.language-html {
+  background-color: #9E9D24;
+}
+
+.language-ruby {
+  background-color: #AB47BC;
 }
