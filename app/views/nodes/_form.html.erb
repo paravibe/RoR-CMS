@@ -13,13 +13,13 @@
   </div>
 <% end %>
 
-<div class="row">
-  <div class="col-md-3">
+<% if !@node.image.url.nil? %>
+  <div class="form-group">
     <div class="image-preview">
       <%= image_tag @node.image.url :thumb %>
     </div>
   </div>
-</div>
+<% end %>
 
 <div class="form-group">
   <%=
