@@ -1,110 +1,116 @@
 <%= error_messages_for(@user) %>
 
-<div class="form-group">
-  <%=
-    f.text_field(
-      :first_name,
-      class: 'form-control',
-      required: '',
-      autofocus: '',
-      placeholder: 'First name'
-    )
-  %>
-</div>
-
-<div class="form-group">
-  <%=
-    f.text_field(
-      :last_name,
-      class: 'form-control',
-      required: '',
-      placeholder: 'Last name'
-    )
-  %>
-</div>
-
-<div class="form-group">
-  <%=
-    f.text_field(
-      :email,
-      class: 'form-control',
-      required: '',
-      placeholder: 'Email'
-    )
-  %>
-</div>
-
-<div class="form-group">
-  <%=
-    f.password_field(
-      :password,
-      class: 'form-control',
-      placeholder: 'Password'
-    )
-  %>
-</div>
-
-<div class="form-group">
-  <label>Roles</label>
-  <% for role in Role.all %>
-    <div class="checkbox">
-      <label>
-        <%= check_box_tag "user[role_ids][]", role.id, @user.roles.include?(role) %>
-        <%= role.name %>
-      </label>
-    </div>
-  <% end %>
-</div>
-
-<%= f.fields_for :profile do |f_p| %>
+<fieldset>
+  <legend>Main</legend>
   <div class="form-group">
     <%=
+      f.text_field(
+        :first_name,
+        class: 'form-control',
+        required: '',
+        autofocus: '',
+        placeholder: 'First name'
+      )
+    %>
+  </div>
+
+  <div class="form-group">
+    <%=
+      f.text_field(
+        :last_name,
+        class: 'form-control',
+        required: '',
+        placeholder: 'Last name'
+      )
+    %>
+  </div>
+
+  <div class="form-group">
+    <%=
+      f.text_field(
+        :email,
+        class: 'form-control',
+        required: '',
+        placeholder: 'Email'
+      )
+    %>
+  </div>
+
+  <div class="form-group">
+    <%=
+      f.password_field(
+        :password,
+        class: 'form-control',
+        placeholder: 'Password'
+      )
+    %>
+  </div>
+
+  <div class="form-group">
+    <label>Roles</label>
+    <% for role in Role.all %>
+      <div class="checkbox">
+        <label>
+          <%= check_box_tag "user[role_ids][]", role.id, @user.roles.include?(role) %>
+          <%= role.name %>
+        </label>
+      </div>
+    <% end %>
+  </div>
+</fieldset>
+
+<fieldset>
+  <legend>Profile</legend>
+
+  <%= f.fields_for :profile do |f_p| %>
+    <div class="form-group">
+      <%=
         f_p.text_field(
             :city,
             class: 'form-control',
             placeholder: 'City'
         )
-    %>
-  </div>
+      %>
+    </div>
 
-  <div class="form-group">
-    <%=
+    <div class="form-group">
+      <%=
         f_p.text_field(
             :company,
             class: 'form-control',
             placeholder: 'Company'
         )
-    %>
-  </div>
+      %>
+    </div>
 
-  <div class="form-group">
-    <%=
+    <div class="form-group">
+      <%=
         f_p.text_field(
             :github,
             class: 'form-control',
             placeholder: 'Github'
         )
-    %>
-  </div>
+      %>
+    </div>
 
-  <div class="form-group">
-    <%=
+    <div class="form-group">
+      <%=
         f_p.text_field(
             :drupal,
             class: 'form-control',
             placeholder: 'Drupal.org'
         )
-    %>
-  </div>
+      %>
+    </div>
 
-  <div class="form-group">
-    <%=
+    <div class="form-group">
+      <%=
         f_p.text_field(
             :linkedin,
             class: 'form-control',
             placeholder: 'Linkedin'
         )
-    %>
-  </div>
-
+      %>
+    </div>
+  </fieldset>
 <% end %>

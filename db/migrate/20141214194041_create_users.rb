@@ -13,7 +13,6 @@ class CreateUsers < ActiveRecord::Migration
       t.belongs_to :user, index: true
       t.string("city")
       t.string("company")
-      t.text("social")
     end
   end
 end

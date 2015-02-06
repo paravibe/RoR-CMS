@@ -6,6 +6,18 @@ class FrontController < ApplicationController
     @user = User.find(1)
     @profile = @user.profile
 
+    # Collect social.
+    @social = {}
+
+    if !@profile.nil?
+      social = ['github', 'drupal', 'linkedin']
+      social.each do |v|
+        if !@profile[v].nil? && !@profile[v].empty?
+          @social[v] = @profile[v]
+        end
+      end
+    end
+
     # Get Gravatar image.
     @profile_image = gimage(@user.email, '200')
 

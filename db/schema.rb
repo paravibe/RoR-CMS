@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150117151626) do
+ActiveRecord::Schema.define(version: 20150206175758) do
 
   create_table "node_titles", force: true do |t|
     t.integer "node_id"
@@ -29,7 +29,9 @@ ActiveRecord::Schema.define(version: 20150117151626) do
     t.integer "user_id"
     t.string  "city"
     t.string  "company"
-    t.text    "social"
+    t.string  "github"
+    t.string  "drupal"
+    t.string  "linkedin"
   end
 
   add_index "profiles", ["user_id"], name: "index_profiles_on_user_id", using: :btree
