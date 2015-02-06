@@ -54,6 +54,7 @@ class NodesController < ApplicationController
       :user_id,
       :status,
       :image,
+      :body,
       node_title_attributes: [:title]
     )
   end

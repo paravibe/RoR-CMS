@@ -28,6 +28,18 @@
 </div>
 
 <div class="form-group">
+  <%=
+      f.text_area(
+          :body,
+          class: 'form-control',
+          required: '',
+          placeholder: 'Body',
+          rows: 10
+      )
+  %>
+</div>
+
+<div class="form-group">
   <%= f.label(:user_id, "Author") %>
   <%=
       f.select(
