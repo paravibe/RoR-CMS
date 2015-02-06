@@ -4,7 +4,7 @@
   <div class="col-sm-6 col-md-4 col-md-offset-4 user edit">
     <h1 class="text-center">Edit User</h1>
 
-    <%= form_for(@user, :url => {:action => 'update', :id => @user.id}) do |f| %>
+    <%= form_for(:user, :url => {:action => 'update', :id => @user.id}) do |f| %>
 
       <%= render(:partial => 'form', :locals => {:f => f} ) %>
 

@@ -5,6 +5,12 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'front#page'
 
+  get 'users' => 'users#index'
+  match 'user/:action' => 'users#:action', :via => [:get, :post, :patch]
+  match 'user/:id/:action' => 'users#:action', :via => [:get, :post, :patch]
+
+  match 'user/:id/profile/:action' => 'profiles#:action', :via => [:get, :post, :patch]
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

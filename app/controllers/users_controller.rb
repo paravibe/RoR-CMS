@@ -8,6 +8,7 @@ class UsersController < ApplicationController
 
   def new
     @user = User.new
+    @user.build_profile
   end
 
   def create
@@ -22,6 +23,9 @@ class UsersController < ApplicationController
 
   def edit
     @user = User.find(params[:id])
+    if (@user.profile.nil?)
+      @user.build_profile
+    end
   end
 
   def update
@@ -89,7 +93,15 @@ class UsersController < ApplicationController
         :password,
         {
           role_ids:[]
-        }
+        },
+        profile_attributes: [
+          :id,
+          :city,
+          :company,
+          :github,
+          :drupal,
+          :linkedin
+        ]
     )
   end
 

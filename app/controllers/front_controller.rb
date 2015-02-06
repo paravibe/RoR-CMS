@@ -3,7 +3,8 @@ class FrontController < ApplicationController
   include FrontHelper
 
   def page
-    @user = User.find(1);
+    @user = User.find(1)
+    @profile = @user.profile
 
     # Get Gravatar image.
     @profile_image = gimage(@user.email, '200')

@@ -13,8 +13,8 @@ password = BCrypt::Password.create('admin')
 role = Role.create({name: 'administrator'})
 user = User.create(
     {
-        :first_name => 'Super',
-        :last_name => 'Admin',
+        :first_name => 'Max',
+        :last_name => 'Petyurenko',
         :email => 'paravibe@gmail.com',
         :password_digest => password,
         :status => 1,

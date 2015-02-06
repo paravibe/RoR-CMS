@@ -5,20 +5,26 @@
         <div class="col-md-12 user">
           <%= image_tag @profile_image, :class => 'img-circle' %>
           <h2><%= @user.name %></h2>
-          <ul class="list-inline">
-            <li>
-              <h5>
-                <span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span>
-                <span>Lviv</span>
-              </h5>
-            </li>
-            <li>
-              <h5>
-                <span class="glyphicon glyphicon-briefcase" aria-hidden="true"></span>
-                <span>Drucode</span>
-              </h5>
-            </li>
-          </ul>
+          <% if (!@profile.city.empty? || !@profile.company.empty?) %>
+            <ul class="list-inline">
+              <% if !@profile.city.empty? %>
+                <li>
+                  <h5>
+                    <span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span>
+                    <span><%= @profile.city %></span>
+                  </h5>
+                </li>
+              <% end %>
+              <% if !@profile.company.empty? %>
+                <li>
+                  <h5>
+                    <span class="glyphicon glyphicon-briefcase" aria-hidden="true"></span>
+                    <span><%= @profile.company %></span>
+                  </h5>
+                </li>
+              <% end %>
+            </ul>
+          <% end %>
         </div>
       </div>
     </div>

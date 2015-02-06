@@ -4,7 +4,7 @@
   <div class="col-md-12">
     <h1>Delete User</h1>
 
-    <%= form_for(@user, :url => {:action => 'destroy', :id => @user.id}) do |f| -%>
+    <%= form_for(:user, :url => {:action => 'destroy', :id => @user.id}) do |f| -%>
 
       <p>Are you sure you want to permanently delete <strong><%= @user.name %></strong>?</p>
       <p>This action cannot be undone</p>

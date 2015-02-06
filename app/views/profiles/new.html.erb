@@ -1,15 +1,15 @@
-<% @page_title = "Add User" -%>
+<% @page_title = "Add profiles" -%>
 
 <div class="row">
   <div class="col-sm-6 col-md-4 col-md-offset-4 user new">
-    <h1 class="text-center">Register</h1>
+    <h1 class="text-center">Add</h1>
 
-    <%= form_for(@user, :url => {:action => 'create'}) do |f| %>
+    <%= form_for(:profile, :url => {:action => 'create'}) do |f| %>
 
       <%= render(:partial => 'form', :locals => {:f => f} ) %>
 
       <div class="form-buttons">
-        <%= submit_tag('Register', class: 'btn btn-lg btn-primary btn-block') %>
+        <%= submit_tag('Add', class: 'btn btn-lg btn-primary btn-block') %>
       </div>
 
     <% end %>

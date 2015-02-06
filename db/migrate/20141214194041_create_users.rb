@@ -1,5 +1,5 @@
 class CreateUsers < ActiveRecord::Migration
-  def up
+  def change
     create_table :users do |t|
       t.string("first_name")
       t.string("last_name")
@@ -8,9 +8,12 @@ class CreateUsers < ActiveRecord::Migration
       t.boolean("status", :default => 0)
       t.timestamps
     end
-  end
 
-  def down
-    drop_table("users")
+    create_table :profiles do |t|
+      t.belongs_to :user, index: true
+      t.string("city")
+      t.string("company")
+      t.text("social")
+    end
   end
 end

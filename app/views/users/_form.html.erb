@@ -55,3 +55,56 @@
     </div>
   <% end %>
 </div>
+
+<%= f.fields_for :profile do |f_p| %>
+  <div class="form-group">
+    <%=
+        f_p.text_field(
+            :city,
+            class: 'form-control',
+            placeholder: 'City'
+        )
+    %>
+  </div>
+
+  <div class="form-group">
+    <%=
+        f_p.text_field(
+            :company,
+            class: 'form-control',
+            placeholder: 'Company'
+        )
+    %>
+  </div>
+
+  <div class="form-group">
+    <%=
+        f_p.text_field(
+            :github,
+            class: 'form-control',
+            placeholder: 'Github'
+        )
+    %>
+  </div>
+
+  <div class="form-group">
+    <%=
+        f_p.text_field(
+            :drupal,
+            class: 'form-control',
+            placeholder: 'Drupal.org'
+        )
+    %>
+  </div>
+
+  <div class="form-group">
+    <%=
+        f_p.text_field(
+            :linkedin,
+            class: 'form-control',
+            placeholder: 'Linkedin'
+        )
+    %>
+  </div>
+
+<% end %>
