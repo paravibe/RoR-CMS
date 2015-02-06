@@ -8,7 +8,7 @@ $nav_trans: 100ms;
 }
 
 nav.navbar div.navbar-header > a {
-  color: #B0BEC5;
+  color: #80CBC4;
 }
 
 nav.navbar {
@@ -16,7 +16,7 @@ nav.navbar {
 }
 
 nav.navbar.background {
-  background: rgba(0, 121, 107, 0.89);
+  background: rgba(55, 71, 79, 0.8);
   -webkit-transition: all $nav_trans linear;
   -moz-transition: all $nav_trans linear;
   transition: all $nav_trans linear;
@@ -33,6 +33,7 @@ section.header {
   position: relative;
   z-index: 990;
   overflow: hidden;
+  box-shadow: 0px 0px 15px 0px #000;
   .video-wrapp {
     background: #000;
     width: 100%;
