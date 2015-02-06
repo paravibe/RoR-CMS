@@ -53,6 +53,7 @@ class NodesController < ApplicationController
     params.require(:node).permit(
       :user_id,
       :status,
+      :image,
       node_title_attributes: [:title]
     )
   end

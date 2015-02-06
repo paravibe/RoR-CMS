@@ -47,4 +47,6 @@ gem 'bcrypt-ruby', '~> 3.1.2'
 
 gem "acts_as_list", "~> 0.6.0"
 gem 'gon'
-gem "github_api"
+gem 'github_api'
+gem 'mini_magick'
+gem 'carrierwave'

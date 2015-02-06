@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150206175758) do
+ActiveRecord::Schema.define(version: 20150206192303) do
 
   create_table "node_titles", force: true do |t|
     t.integer "node_id"
@@ -23,6 +23,7 @@ ActiveRecord::Schema.define(version: 20150206175758) do
     t.boolean  "status",     default: false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "image"
   end
 
   create_table "profiles", force: true do |t|
