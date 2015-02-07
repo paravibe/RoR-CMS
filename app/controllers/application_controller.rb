@@ -12,7 +12,6 @@ class ApplicationController < ActionController::Base
       return true
     else
       flash[:alert] = "Please log in."
-      redirect_to(:controller => 'users', :action => 'login')
       return false
     end
   end
