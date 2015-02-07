@@ -12,7 +12,6 @@ function initChart() {
   ]);
 
   var options = {
-    bars: 'horizontal',
     title: '',
     height: 300,
     legend: {
