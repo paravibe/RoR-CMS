@@ -21,6 +21,9 @@ class FrontController < ApplicationController
     # Get Gravatar image.
     @profile_image = gimage(@user.email, '200')
 
+    # Nodes list.
+    nodes = Node.sorted
+
     # List of skills for bar chart.
     skills = {
       'Skill' => 'Skill',

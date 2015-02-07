@@ -7,13 +7,17 @@ module FrontHelper
   end
 
   def github_repos (user)
-    github = Github.new
-    repos = github.repos.list user: user
-
     repositories = []
 
-    if repos.success?
-      repositories = repos.to_ary
+    github = Github.new
+
+    begin
+      repos = github.repos.list user: user
+      if repos.success?
+        repositories = repos.to_ary
+      end
+    rescue Exception => exception
+      STDERR.puts "General error loading repositories: #{exception.message}"
     end
 
     return repositories
