@@ -2,9 +2,9 @@ class User < ActiveRecord::Base
   has_secure_password
   has_and_belongs_to_many :roles
   has_many :nodes
-  has_one :profile
+  has_one :profile, :dependent => :destroy
 
-  accepts_nested_attributes_for :profile, allow_destroy: true
+  accepts_nested_attributes_for :profile, :allow_destroy => true
 
   EMAIL_REGEX = /\A[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}\Z/i
 

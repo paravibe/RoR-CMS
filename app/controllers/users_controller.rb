@@ -96,11 +96,13 @@ class UsersController < ApplicationController
         },
         profile_attributes: [
           :id,
+          :user_id,
           :city,
           :company,
           :github,
           :drupal,
-          :linkedin
+          :linkedin,
+          :_destroy
         ]
     )
   end
