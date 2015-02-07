@@ -22,7 +22,8 @@ class FrontController < ApplicationController
     @profile_image = gimage(@user.email, '200')
 
     # Nodes list.
-    nodes = Node.sorted
+    nodes = Node.sorted.to_ary
+    @nodes = nodes.each_slice(2).to_a
 
     # List of skills for bar chart.
     skills = {
