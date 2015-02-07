@@ -48,15 +48,13 @@
 
   <div class="form-group">
     <label>Roles</label>
-    <% for role in Role.all %>
-      <div class="checkbox">
-        <label>
-          <%= check_box_tag "user[role_ids][]", role.id, @user.roles.include?(role) %>
-          <%= role.name %>
-        </label>
-      </div>
-    <% end %>
+    <div class="checkbox">
+      <label>
+        <%= f.collection_check_boxes :role_ids, Role.all, :id, :name %>
+      </label>
+    </div>
   </div>
+
 </fieldset>
 
 <fieldset>

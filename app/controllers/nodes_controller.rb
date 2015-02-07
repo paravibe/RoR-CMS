@@ -1,5 +1,5 @@
 class NodesController < ApplicationController
-  before_action :confirm_logged_in
+  before_action :is_admin
   before_action :get_users, :only => [:new, :create, :edit, :update]
   before_action :find_title, :only => [:edit, :update, :delete, :destroy]
 
