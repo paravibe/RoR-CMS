@@ -44,8 +44,8 @@
         <% @nodes.each do |node_block| %>
           <div class="col-md-6">
             <% node_block.each do |node| %>
-              <div class="node">
-                <%= image_tag node.image.url :thumb %>
+              <div class="node clearfix">
+                <%= image_tag node.image.url :front_icon %>
                 <p class="text"><%= node.body %></p>
               </div>
             <% end %>

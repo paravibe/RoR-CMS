@@ -177,3 +177,12 @@ footer {
 .language-ruby {
   background-color: #AB47BC;
 }
+
+section.bullets .node {
+  margin-bottom: 30px;
+}
+
+section.bullets .node > img {
+  float: left;
+  margin-right: 15px;
+}
