@@ -14,7 +14,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      flash[:notice] = 'User created.'
+      flash[:notice] = "User #{@user.name} has been created."
       redirect_to(:action => 'index')
     else
       render("new")
@@ -31,7 +31,7 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     if @user.update_attributes(user_params)
-      flash[:notice] = 'User updated.'
+      flash[:notice] = "Data for #{@user.name} user has been updated."
       redirect_to(:action => 'index')
     else
       render("edit")
@@ -43,8 +43,8 @@ class UsersController < ApplicationController
   end
 
   def destroy
-    User.find(params[:id]).destroy
-    flash[:notice] = "User destroyed."
+    user = User.find(params[:id]).destroy
+    flash[:notice] = "User #{user.name} has been destroyed."
     redirect_to(:action => 'index')
   end
 

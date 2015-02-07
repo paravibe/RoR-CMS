@@ -13,7 +13,7 @@ class RolesController < ApplicationController
   def create
     @role = Role.new(role_params)
     if @role.save
-      flash[:notice] = 'Role added.'
+      flash[:notice] = "Role #{@role.name} has been added."
       redirect_to(:action => 'index')
     else
       render("new")
@@ -27,7 +27,7 @@ class RolesController < ApplicationController
   def update
     @role = Role.find(params[:id])
     if @role.update_attributes(role_params)
-      flash[:notice] = 'Role updated.'
+      flash[:notice] = "Role #{@role.name} has been updated."
       redirect_to(:action => 'index')
     else
       render("edit")
@@ -39,8 +39,8 @@ class RolesController < ApplicationController
   end
 
   def destroy
-    Role.find(params[:id]).destroy
-    flash[:notice] = "Role destroyed."
+    role = Role.find(params[:id]).destroy
+    flash[:notice] = "Role #{role.name} has been destroyed."
     redirect_to(:action => 'index')
   end
 
@@ -48,7 +48,7 @@ class RolesController < ApplicationController
 
   def role_params
     params.require(:role).permit(
-        :name,
+      :name,
     )
   end
 end

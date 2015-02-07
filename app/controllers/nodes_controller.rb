@@ -18,7 +18,7 @@ class NodesController < ApplicationController
 
     # Save node.
     if @node.save
-      flash[:notice] = 'Node has been created.'
+      flash[:notice] = "Node #{@node.node_title.title} has been created."
       redirect_to(:action => 'index')
     else
       render("new")
@@ -31,7 +31,7 @@ class NodesController < ApplicationController
 
   def update
     if @node.update_attributes(node_params)
-      flash[:notice] = 'Node has been updated.'
+      flash[:notice] = "Node #{@node.node_title.title} has been updated."
       redirect_to(:action => 'index')
     else
       render("edit")
@@ -42,8 +42,8 @@ class NodesController < ApplicationController
   end
 
   def destroy
-    Node.find(params[:id]).destroy
-    flash[:notice] = 'Node has been destroyed.'
+    node = Node.find(params[:id]).destroy
+    flash[:notice] = "Node #{node.node_title.title} has been destroyed."
     redirect_to(:action => 'index')
   end
 
