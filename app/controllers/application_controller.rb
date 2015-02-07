@@ -40,8 +40,8 @@ class ApplicationController < ActionController::Base
       format.html {
         render :file => "#{Rails.root}/public/403", :layout => 'application', :status => :forbidden
       }
-      format.xml  { head :not_found }
-      format.any  { head :not_found }
+      format.xml  { head :forbidden }
+      format.any  { head :forbidden }
     end
   end
 end
