@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 
-  before_action :confirm_logged_in, :except => [:login, :attempt_login, :logout]
+  before_action :is_admin, :except => [:login, :attempt_login, :logout]
 
   def index
     @users = User.sorted

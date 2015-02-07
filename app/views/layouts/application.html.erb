@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title><%= "#{@page_title} | " if @page_title %>Paravibe</title>
+  <title><%= content_for?(:title) ? "#{content_for(:title)} | " : '' %>Paravibe</title>
   <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= include_gon %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>

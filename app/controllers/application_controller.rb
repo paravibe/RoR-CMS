@@ -28,7 +28,9 @@ class ApplicationController < ActionController::Base
 
   def render_404
     respond_to do |format|
-      format.html { render :file => "#{Rails.root}/public/404", :layout => 'application', :status => :not_found }
+      format.html {
+        render :file => "#{Rails.root}/public/404", :layout => 'application', :status => :not_found
+      }
       format.xml  { head :not_found }
       format.any  { head :not_found }
     end
@@ -36,7 +38,9 @@ class ApplicationController < ActionController::Base
 
   def render_403
     respond_to do |format|
-      format.html { render :file => "#{Rails.root}/public/403", :layout => 'application', :status => :not_found }
+      format.html {
+        render :file => "#{Rails.root}/public/403", :layout => 'application', :status => :forbidden
+      }
       format.xml  { head :not_found }
       format.any  { head :not_found }
     end
