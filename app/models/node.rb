@@ -7,4 +7,5 @@ class Node < ActiveRecord::Base
   validates :user_id, :presence => true
 
   scope :sorted, lambda { order("id DESC") }
+  scope :published, lambda {where(:status => true)}
 end

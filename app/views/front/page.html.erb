@@ -37,22 +37,24 @@
   </div>
 </section>
 
-<section class="bullets">
-  <div class="container">
-    <div class="row">
-      <% @nodes.each do |node_block| %>
-        <div class="col-md-6">
-          <% node_block.each do |node| %>
-            <div class="node">
-              <div class="img"><%= image_tag node.image.url :thumb %></div>
-              <div class="text"><%= node.body %></div>
-            </div>
-          <% end %>
-        </div>
-      <% end %>
+<% if !@nodes.empty? %>
+  <section class="bullets">
+    <div class="container">
+      <div class="row">
+        <% @nodes.each do |node_block| %>
+          <div class="col-md-6">
+            <% node_block.each do |node| %>
+              <div class="node">
+                <%= image_tag node.image.url :thumb %>
+                <p class="text"><%= node.body %></p>
+              </div>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
+<% end %>
 
 <section class="skills" id="skills">
   <div class="container">
@@ -67,41 +69,43 @@
   </div>
 </section>
 
-<section class="repositories" id="projects">
-  <div class="container">
-    <div class="row">
-      <h2 class="title text-center">My projects</h2>
+<% if !@repos.empty? %>
+  <section class="repositories" id="projects">
+    <div class="container">
+      <div class="row">
+        <h2 class="title text-center">My projects</h2>
 
-      <% @repos.each do |repo| %>
-        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
-          <div class="repo-wrapper">
-            <h3 class="language language-<%= repo.language.downcase %>"><%= repo.language %></h3>
-            <div class="desc">
-              <h2 class="name"><%= repo.name %></h2>
-              <p class="description"><%= repo.description %></p>
+        <% @repos.each do |repo| %>
+          <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+            <div class="repo-wrapper">
+              <h3 class="language language-<%= repo.language.downcase %>"><%= repo.language %></h3>
+              <div class="desc">
+                <h2 class="name"><%= repo.name %></h2>
+                <p class="description"><%= repo.description %></p>
+              </div>
+              <div class="counts">
+                <div class="col-xs-4">
+                  <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                  <%= repo.stargazers_count %>
+                </div>
+                <div class="col-xs-4">
+                  <span class="glyphicon glyphicon-heart" aria-hidden="true"></span>
+                  <%= repo.watchers_count %>
+                </div>
+                <div class="col-xs-4">
+                  <span class="glyphicon glyphicon-time" aria-hidden="true"></span>
+                  <%= time_ago_in_words(repo.updated_at) %>
+                </div>
+              </div>
+              <a target="_blank" href="<%= repo.html_url %>">&nbsp;</a>
             </div>
-            <div class="counts">
-              <div class="col-xs-4">
-                <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-                <%= repo.stargazers_count %>
-              </div>
-              <div class="col-xs-4">
-                <span class="glyphicon glyphicon-heart" aria-hidden="true"></span>
-                <%= repo.watchers_count %>
-              </div>
-              <div class="col-xs-4">
-                <span class="glyphicon glyphicon-time" aria-hidden="true"></span>
-                <%= time_ago_in_words(repo.updated_at) %>
-              </div>
-            </div>
-            <a target="_blank" href="<%= repo.html_url %>">&nbsp;</a>
           </div>
-        </div>
-      <% end %>
+        <% end %>
 
+      </div>
     </div>
-  </div>
-</section>
+  </section>
+<% end %>
 
 <footer>
   <div class="container">
