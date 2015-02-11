@@ -31,10 +31,10 @@ function drawChart(data, options) {
   $(window).load(function(){
     $(window).scroll(function() {
       var offset = $(this).scrollTop();
-      if (offset >= 400) {
+      if (offset >= 100) {
         $('nav.navbar').addClass('background');
       }
-      else if (offset < 400) {
+      else if (offset < 100) {
         $('nav.navbar').removeClass('background');
       }
     });
