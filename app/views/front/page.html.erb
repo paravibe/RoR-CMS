@@ -58,7 +58,7 @@
   </section>
 <% end %>
 
-<section class="skills" id="skills">
+<section id="skills">
   <div class="container">
     <div class="row">
       <h2 class="title text-center">My skills</h2>
@@ -72,7 +72,7 @@
 </section>
 
 <% if !@repos.empty? %>
-  <section class="repositories" id="projects">
+  <section id="projects">
     <div class="container">
       <div class="row">
         <h2 class="title text-center">My projects</h2>
@@ -109,13 +109,13 @@
   </section>
 <% end %>
 
-<footer>
+<footer id="contacts">
   <div class="container">
     <div class="row">
-      <div class="col-xs-10 col-sm-11 col-md-11 col-lg-11">test</div>
       <% if !@social.empty? %>
-        <div class="col-xs-2 col-sm-1 col-md-1 col-lg-1">
-          <ul class="text-center list-unstyled social">
+        <div class="col-md-12">
+          <ul class="text-center list-unstyled list-inline social">
+            <li>Contact with me:</li>
             <% @social.each do |name, value| %>
               <li>
                 <a target="_blank" class="social-link" href="<%= value %>">

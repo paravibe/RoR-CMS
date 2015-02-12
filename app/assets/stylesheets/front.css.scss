@@ -1,6 +1,8 @@
 $hover_trans: 300ms;
 $nav_trans: 100ms;
 
+$c_navy: #80CBC4;
+
 .front {
   h1, h2, h3, h4, h5, h6 {
     font-family: 'Ubuntu', sans-serif;
@@ -8,7 +10,10 @@ $nav_trans: 100ms;
 }
 
 nav.navbar div.navbar-header > a {
-  color: #80CBC4;
+  color: $c_navy;
+  &:active, &:focus, &:hover {
+    color: #4285F4;
+  }
 }
 
 nav.navbar {
@@ -55,6 +60,9 @@ nav.navbar-default {
   color: #ECEFF1;
   .navbar-nav > li > a {
     color: #ECEFF1;
+    &:active, &:focus, &:hover {
+      color: $c_navy;
+    }
   }
 }
 
@@ -71,11 +79,11 @@ nav.navbar-default {
   margin-top: 50px;
 }
 
-.skills {
+#skills {
   #skills-chart-wrapp {
     #skills-chart {
       margin-left: -26px;
-      margin-right: -60px;
+      margin-right: -15px;
       svg > g {
         > line, > text {
           display: none;
@@ -85,8 +93,8 @@ nav.navbar-default {
   }
 }
 
-.repositories {
-  background-color: #eee;
+#projects {
+  background-color: #EEEEEE;
   border-top: 1px solid #E0E0E0;
   padding-bottom: 20px;
   .repo-wrapper {
@@ -126,13 +134,12 @@ nav.navbar-default {
 }
 
 footer {
-  background-color: #212121;
+  border-top: 1px solid #4285F4;
+  padding: 30px 0;
   ul.social {
     background-color: #fff;
     margin: 0;
     .social-link {
-      padding: 8px 0;
-      display: block;
       &:hover {
         opacity: 0.6;
         -webkit-transition: all $hover_trans linear;
