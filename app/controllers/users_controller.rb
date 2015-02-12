@@ -55,22 +55,17 @@ class UsersController < ApplicationController
   end
 
   def attempt_login
-    if params[:email].present? && params[:password].present?
+    if params[:email].present? && params[:password].present? &&
       found_user = User.where(:email => params[:email]).first
-      if found_user
-        authorized_user = found_user.authenticate(params[:password])
-        if authorized_user
-          # mark user as logged in
-          session[:user_id] = authorized_user.id
-          session[:email] = authorized_user.email
-          flash[:notice] = "You are now logged in."
-          redirect_to root_path
-        else
-          flash[:alert] = "Invalid username or password."
-          redirect_to(:action => 'login')
-        end
+      authorized_user = found_user.authenticate(params[:password])
+      if authorized_user
+        # mark user as logged in
+        session[:user_id] = authorized_user.id
+        session[:email] = authorized_user.email
+        flash[:notice] = "You are now logged in."
+        redirect_to root_path
       else
-        flash[:alert] = "Username doesn't exist."
+        flash[:alert] = "Invalid username or password."
         redirect_to(:action => 'login')
       end
     end
