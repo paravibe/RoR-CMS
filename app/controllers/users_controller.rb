@@ -49,9 +49,6 @@ class UsersController < ApplicationController
   end
 
   def login
-    if is_logged_in
-      # redirect_to(:action => 'index')
-    end
   end
 
   def attempt_login
