@@ -20,28 +20,28 @@ class ApplicationController < ActionController::Base
     if confirm_logged_in && (current_user.roles.ids.include?(1) || current_user.id == 1)
       return true
     else
-      render_403
+      render_error(403)
       return false
     end
   end
 
-  def render_404
-    respond_to do |format|
-      format.html {
-        render :file => "#{Rails.root}/public/404", :layout => 'application', :status => :not_found
-      }
-      format.xml  { head :not_found }
-      format.any  { head :not_found }
+  def render_error(error)
+    case error
+      when 404
+        status = :not_found
+      when 403
+        status = :forbidden
     end
-  end
 
-  def render_403
     respond_to do |format|
       format.html {
-        render :file => "#{Rails.root}/public/403", :layout => 'application', :status => :forbidden
+        render :file =>
+          "#{Rails.root}/public/#{error}",
+          :layout => 'application',
+          :status => status
       }
-      format.xml  { head :forbidden }
-      format.any  { head :forbidden }
+      format.xml  { head status }
+      format.any  { head status }
     end
   end
 end
